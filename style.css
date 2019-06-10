@@ -3,8 +3,6 @@
 }
 
 html, body, .site-wrapper {
-    /* width: 100%;
-    height: 100%; */
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -152,6 +150,18 @@ ul {
     border-right: 1px solid #eeeeee;
     border-left: 1px solid #eeeeee;
     color: #a19e9e;
+    position: relative;
+}
+
+.notification-bell::after{
+    content: "";
+    background-color: #8e80ef;
+    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+    left: 52%;
+    bottom: 55%;
+    position: absolute;
 }
 
 .site-header  .user-info {
@@ -245,7 +255,7 @@ ul {
   } 
 
 .left-calendar {
-    max-width: 670px; 
+    width: 100%;
     display: flex;
     margin-left: 25px;
     margin-bottom: 15px;
@@ -261,8 +271,9 @@ ul {
 
 
 
-.left-calendar table {
+ table {
     background-color: #ffffff;
+    width: 47%;
     font-weight: 500;
     padding-right: 28px;
     border-radius: 5px 0px 0px 5px; /* top left, top right, bottom right, bottom left */
@@ -283,9 +294,10 @@ ul {
    text-align: center;
    position: relative;
     z-index: 1;
+    cursor: pointer;
 }
 
-.date:first-child::after{
+.left-calendar .date:first-child::after{
     content: "";
     background-color: rgb(0, 142, 255);
     border-radius: 50%;
@@ -296,7 +308,7 @@ ul {
     position: absolute;
 }
 
-.date:nth-child(2)::before{
+.left-calendar .date:nth-child(2)::before{
     content: "";
     background-color: rgb(0, 142, 255);
     border-radius: 50%;
@@ -307,7 +319,7 @@ ul {
     position: absolute;
 }
 
-.date:nth-child(2)::after{
+.left-calendar .date:nth-child(2)::after{
     content: "";
     background-color: rgb(241, 36, 113);
     border-radius: 50%;
@@ -318,23 +330,24 @@ ul {
     position: absolute;
 }
 
-.date:nth-child(3) {
+.left-calendar .date:nth-child(3) {
     color: #ffffff;
 }
 
-.date:nth-child(3)::after{
+.left-calendar .date:nth-child(3)::after{
     z-index: -1;
     content: "";
     background-color: rgb(141, 127, 238);
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    left: 12%;
+    left: 13%;
     bottom: 30%;
     position: absolute;
 }
 
 .next-week {
+    width: 47%;
     background-color: rgb(141, 127, 238);
     color: #ffffff;
     display: flex;
@@ -517,6 +530,7 @@ button:hover {
     bottom: 10%;
     right: 10%;
     box-shadow: 2px 4px 12px 1px #ffaa1a;
+    cursor: pointer;
 }
 
 .orange-circle::after{
@@ -530,31 +544,116 @@ button:hover {
 }
 
 
-#calendar2 {
-    width: 100%;
-    line-height: 2em;
-    font-size: 16px;
-    text-align: center;
-    font-weight: 500;
-  }
-   
-#calendar2 thead tr:last-child {
-  
-    color: rgb(189, 189, 189);
-  }
-  
-  #calendar2 thead tr:nth-child(1) td:nth-child(2) {
-    color:rgb(141, 127, 238);
-  }
-  #calendar2 thead tr:nth-child(1) td:nth-child(1):hover, #calendar2 thead tr:nth-child(1) td:nth-child(3):hover {
-    cursor: pointer;
-  }
-  #calendar2 tbody td {
-    color: black;
-  }
 
-  #calendar2 tbody td.today {
-    background:  rgb(141, 127, 238);
-    color: #fff;
+
+.right-calendar .title-calendar{
+    padding: 10px;
+    color: #8e80ef;
+}
+
+.arrow-left-s{
+    padding-right: 145px;
+    color:#dbdbdb;
+    cursor: pointer;
+}
+
+.arrow-right-s{
+    padding-left: 145px;
+    color:#dbdbdb;
+    cursor: pointer;
+
+}
+
+.right-calendar table{
+    padding-left: 10px;
+}
+
+.right-calendar .day {
+    color: rgb(180, 180, 180);
+    padding: 19px;
+}
+
+.right-calendar .date {
+   padding: 0px 15px 15px 15px;
+   text-align: center;
+   position: relative;
+    z-index: 1;
+}  
+
+
+
+.right-calendar .date {
+    padding: 10px;
+}
+
+.preprev-date:first-child::after{
+    content: "";
+    background-color: rgb(0, 142, 255);
     border-radius: 50%;
-  }
+    width: 4px;
+    height: 4px;
+    left: 45%;
+    bottom: 20%;
+    position: absolute;
+}
+
+.prev-date::before{
+    content: "";
+    background-color: rgb(0, 142, 255);
+    border-radius: 50%;
+    width: 4px;
+    height: 4px;
+    left: 47%;
+    bottom: 20%;
+    position: absolute;
+}
+
+.prev-date::after{
+    content: "";
+    background-color: rgb(241, 36, 113);
+    border-radius: 50%;
+    width: 4px;
+    height: 4px;
+    left: 47%;
+    bottom: 5%;
+    position: absolute;
+}
+
+.today::after{
+    z-index: -1;
+    content: "";
+    background-color: rgb(141, 127, 238);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    left: 20%;
+    bottom: 10%;
+    position: absolute;
+}
+
+.today {
+    color: #ffffff;
+}
+
+.right-calendar .future-day {
+    color: #8e80ef;
+}
+
+.notes {
+    position: relative;
+}
+
+.notes::before{
+    content: "";
+    background-color: rgb(0, 142, 255);
+    border-radius: 50%;
+    width: 4px;
+    height: 4px;
+    left: 47%;
+    bottom: 10%;
+    position: absolute;
+}
+
+.right-calendar .next-month {
+    color: #a19e9e;
+}
